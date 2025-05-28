@@ -1,3 +1,15 @@
+/**
+ * The first loop on lines 40-42 helps us to find and remove the smallest value from the loop. The loop consists of these values: { 10, -5, 11, 2 }.
+ * i range is from 0 to smallest index - 1.
+ * This means that the loop finds the smallest element by taking the smallest index, 0, in this case, and the number under the smallest index is 10
+ * and it compares this number to the next smallest index - 1 number, in this case, is -5, and so on, till it compares all the numbers and find the smallest one.
+ * Then it copies all the numbers except the smallest one to the temporary array. The index position remains the same, as it doesn't specify i-1 or i+1.
+ * The second loop on lines 43-45 is moving all the numbers that are left by one place to the left and filling the spot that is left from the smallest number.
+ * There are 4 digits in the input and 3 digits in the output as a result.
+ * Therefore, the index number is lower in the output than in the input, as it says i-1.
+ * The numbers were moved and the index of each was lowered by one.
+ */
+
 import java.util.Arrays; // from printing array
 
 /**
@@ -23,7 +35,7 @@ public class Realistic {
             if (arr[i] < arr[smallest_index]) {
                 // found new smallest, update index
                 smallest_index = i;
-            }
+                }
         }
         // When loop is done, smallest_index points to smallest element. Save it in a
         // variable so that we can return its value when we are done.
@@ -43,6 +55,14 @@ public class Realistic {
         for (int i = smallest_index + 1; i < arr.length; i++) {
             temporary[i - 1] = arr[i];
         }
+        
+        public static void add(int value){
+            int[] temporary = new int[arr.length + 1];
+            for (int i = 0; i < arr.length; i++) {
+            temporary[i + i] = arr[i];
+        }
+
+
         /*
          * Same result with a while loop
          * 
@@ -60,7 +80,7 @@ public class Realistic {
         arr = temporary; // array shorted by 1 (removing smallest elem)
         return result; // smallest element
     } // method getSmallest
-
+    
     /** Driver/simple test code */
     public static void main(String[] args) {
         System.out.printf("\n\nArray before removal of smallest element: %s",
