@@ -59,7 +59,7 @@ public class Realistic {
         public static void add(int value){
             int[] temporary = new int[arr.length + 1];
             for (int i = 0; i < arr.length; i++) {
-            temporary[i + i] = arr[i];
+            temporary[i] = arr[i];
         }
 
 
